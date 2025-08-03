@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx7vmtg5tj2b6"]
+
+[ext_resource type="Script" uid="uid://bbiabo6fqh5de" path="res://game3/tracker.gd" id="1_rrw7b"]
+
+[node name="tracker" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rrw7b")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Status: "
+
+[node name="CounterLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Your Output"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="add" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Add Me"
+
+[node name="subtract" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Subtract"
+
+[node name="reset" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/add" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/subtract" to="." method="_on_subtract_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/reset" to="." method="_on_reset_button_pressed"]
